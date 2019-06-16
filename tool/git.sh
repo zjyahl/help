@@ -1,6 +1,16 @@
+git config --list
 git config --global user.name "Your Name"
 git config --global user.email "email@example.com"
+git config --global core.autocrlf false
+git config --global core.safecrlf true 
 git init
+
+.gitignore
+npm-debug.log
+dist/
+
+.gitkeep
+
 
 git status
 
