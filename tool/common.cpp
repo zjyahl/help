@@ -43,3 +43,5 @@ int loopInx(int inx, int len)
 	}
 	return inx % len;
 }
+X*0.1n + Y*0.1m == X*0.1n + (Y*0.1m鈭抧) * 0.1n == (X+Y*0.1m鈭抧) * 0.1n锛屽叾涓璶>m
+X*0.1n * Y*0.1m == (X*Y)*0.1n+m
