@@ -1,0 +1,2 @@
+<?php
+$nowTime = date('YmdHis');

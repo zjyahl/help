@@ -11,6 +11,9 @@ Path.Combine(
 	"documents");
 Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
+string[] dirs = Directory.GetDirectories(@"G:\source");
+string[] files = Directory.GetFiles(path);
+
 File.WriteAllText(fileName, "data");
 var file = new FileInfo(@".\1.txt");
 fileCopyTo(@"c:\1.txt");
