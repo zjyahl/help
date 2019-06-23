@@ -1,3 +1,8 @@
+Thread thread1 = new Thread(()={});  
+thread1 = new Thread((obj)={});  
+thread1.Start(); 
+thread1.join();
+
 IAsyncResult ar=delegateF.BeginInvoke(3,"str参数",null,"AsycState:OK");
 int result = f.EndInvoke(ar);
 
@@ -8,7 +13,26 @@ void CallBack(IAsyncResult result)
     result.AsyncState;
  }
 
-
+ParalleLoopResult result = 
+         Parallel.For(0, 10, async i =>
+         {
+        await Task.Delay(10);
+         }
+        );
+ ParalleLoopResult result = 
+         Parallel.For(0, 10, (int i, ParallelLoopState pls) =>
+         {
+            if(i>2) pls.Break;
+         }
+        );
+ Parallel.For<string>(0, 10, 
+    ()=>{return "init";},
+    (i, pls, initStr)=>{result "rst";},
+    (rstStr)=>{}
+    );
+ ParalleLoopResult rstult = Parallel.ForEach<string>(enumerateData, data=>{});
+ Parallel.Invoke(actionFun1, actionFun2,....);
+ result.IsComplated;
 
 string a = Task.CurrentId?ToString() ?? "no task";
 a = Thread.CurrentThread.ManagedThreadId;
@@ -140,3 +164,15 @@ catch(Exception ex)
 {
     foreach (var item in res.Exception.InnerExceptions){}
 }
+
+lock(obj){}
+Interlocked.Increment(ref a);
+Monitor;
+SpinLock;
+Mutex;
+Semaphore;
+SemphoreSlim;
+ManualResetEvent;
+ManualResetEventSlim;
+Barrier;
+ReaderWriteLockSlim;

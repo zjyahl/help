@@ -40,6 +40,10 @@ StreamWriter;
 BinaryReader;
 BinaryWriter;
 
+void Log([CallerLineNumber] int line = -1,
+          [CallerFilePath] string path = null,
+          [CallerMemberName] string name = null
+            ){}
 var stream = File.OpenWrite(filePath);
 stream.CopyTo(outStream);
 if (byte1 == 0xFF && byte2 == 0xFE && byte3 == 0 && byte4 == 0)
