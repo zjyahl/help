@@ -81,6 +81,7 @@ string.Format("{0:P1}", 0.24583);//24.6%
 string.Format("{0:X2}",10)//0A
 DateTime.Now.ToString("yyyy-M-d H:m:s");
 DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.fff")
+string.Format("{0:yyyy_MM_dd HH:mm:ss}", dtime);
 string a = $"{txt}";
 StringBuilder a;
 
