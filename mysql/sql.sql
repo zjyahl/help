@@ -80,3 +80,5 @@ SELECT * FROM tb_user WHERE id > 1000 LIMIT 10
 SELECT * FROM tb_user USE INDEX (user_name)
 SELECT * FROM tb_user IGNORE INDEX (user_name) WHERE user_name="qq"
 SELECT * FROM tb_user FORCE INDEX (user_name) WHERE user_name="qq"
+
+date_format(str_to_date(t.wip_update_time, '%Y%m%d%H%i%s'),'%Y-%m-%d %H:%i:%s') 
