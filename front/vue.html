@@ -1,0 +1,362 @@
+<div v-bind:class="{'class1': use}"></div>
+
+<div v-bind:class="[errorClass ,isActive ? activeClass : '']"></div>
+<div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">菜鸟教程</div>
+
+<div v-bind:id="'list-' + id"></div>
+{{5+5}}
+{{ ok ? 'YES' : 'NO' }}
+{{ message.split('').reverse().join('') }}
+<form v-on:submit.prevent="onSubmit"></form>
+<input v-model="message">
+<input v-bind:value="message" v-on:input="message = $event.target.value" />
+<div v-bind:id="rawId | formatId"></div>
+{{ message | filterA('arg1', arg2) }}
+{{#if ok}}
+  <h1>Yes</h1>
+{{/if}}
+<div v-if="type === 'A'">
+      A
+</div>
+<div v-else-if="type === 'B'">
+  B
+</div>
+<div v-else-if="type === 'C'">
+  C
+</div>
+<div v-else>
+  Not A/B/C
+</div>
+<h1 v-show="ok">Hello!</h1>
+<li v-for="(value, key, index) in object">
+     {{ index }}. {{ key }} : {{ value }}
+</li>
+filters: {
+    capitalize: function (value) {
+      if (!value) return ''
+      value = value.toString()
+      return value.charAt(0).toUpperCase() + value.slice(1)
+    }
+  }
+  
+computed: {
+  site: {
+    // getter
+    get: function () {
+      return this.name + ' ' + this.url
+    },
+    // setter
+    set: function (newValue) {
+      var names = newValue.split(' ')
+      this.name = names[0]
+      this.url = names[names.length - 1]
+    }
+  }
+}
+
+watch : {
+               kilometers:function(val) {
+                  this.kilometers = val;
+                  this.meters = this.kilometers * 1000
+               },
+               meters : function (val) {
+                  this.kilometers = val/ 1000;
+                  this.meters = val;
+               }
+            }
+vm.$watch('kilometers', function (newValue, oldValue)；
+
+<table>
+  <tr is="my-row"></tr>
+</table>
+//vue no
+
+class style merge
+<my-component v-on:click.native="doTheThing"></my-component>
+
+<my-checkbox v-model="foo" value="some value"></my-checkbox>
+<my-checkbox :checked="foo" @change="val => { foo = val }" value="some value"></my-checkbox>
+
+<component :is="currentComponent"></component>
+<keep-alive>
+  <component :is="currentComponent">
+    <!-- 非活动组件将被缓存！ -->
+  </component>
+</keep-alive>
+
+<div class="container">
+  <header>
+    <slot name="header"></slot>
+  </header>
+  <main>
+    <slot></slot>
+  </main>
+  <footer>
+    <slot name="footer"></slot>
+  </footer>
+</div>
+
+<app-layout>
+  <h1 slot="header">这里可能是一个页面标题</h1>
+  <p>主要内容的一个段落。</p>
+  <p>另一个主要段落。</p>
+  <p slot="footer">这里有一些联系信息</p>
+</app-layout>
+
+
+<div id="app7">
+<my-component4>
+ <template slot-scope="props">
+   <span>{{props.text}}</span>
+   <span>{{props.message}}</span>
+ </template>
+</my-component4>
+</div>
+
+<div id="app7">
+<my-component4>
+ <template slot-scope="{text, message}">
+   <span>{{text}}</span>
+   <span>{{message}}</span>
+ </template>
+</my-component4>
+</div>
+
+<router-link to="/one">One</router-link>
+<router-link :to="{ name: 'one'}">User</router-link>
+<router-view></router-view>
+<router-view name="a"></router-view>
+<router-view name="b"></router-view>
+<script type="text/javascript">
+/*String
+Number
+Boolean
+Function
+Object
+Array
+Symbol*/
+Vue.component('example', {
+    props: {
+    // 基础类型检测 (`null` 意思是任何类型都可以)
+      propA: Number,
+      // 多种类型
+      propB: [String, Number],
+      // 必传且是字符串
+      propC: {
+        type: String,
+        required: true
+      },
+      // 数字，有默认值
+      propD: {
+        type: Number,
+        default: 100
+      },
+      // 数组/对象的默认值应当由一个工厂函数返回
+      propE: {
+        type: Object,
+        default: function () {
+          return { message: 'hello' }
+        }
+      },
+      // 自定义验证函数
+      propF: {
+        validator: function (value) {
+          return value > 10
+        }
+      },
+    },
+
+});
+Vue.component('my-component3', {
+    template: `<input ref="input" type="text" :value="checked" @input="checkInput($event.target.value)">`,
+    props: ['checked'],        // 属性名改变
+    model: {
+      prop: 'checked',
+      event: 'change'
+    },
+    methods: {
+      checkInput (value) {
+        var hello = 'hello'
+        if (!hello.includes(value)) {
+          this.$emit('change', hello)   // 事件类型改变
+          this.$refs.input.value = hello
+        } else {
+          this.$emit('change', value)  // 事件类型改变
+        }
+      }
+    }
+});
+new Vue({
+        el: '#app6',
+        data: {
+          currentComponent: 'home'
+        },
+        components: {
+          home: {
+            template: `<header>这是home组件</header>`
+          },
+          post: {
+            template: `<header>这是post组件</header>`
+          },
+          about: {
+            template: `<header>这是about组件</header>`
+          }
+        },
+        watch: {
+          $route(to, from) {
+              console.log(to);
+              console.log(from);
+      }
+    }
+});
+function Person(name, age) {
+    this.name = name
+    this.age = age
+  }
+Vue.component('my-component', {
+template: `<div>名字: {{ person-prop.name }}， 年龄： {{ person-prop.age }} </div>`,
+props: {
+  person-prop: {
+    type: Person     // 指定类型
+  }
+}
+});
+Vue.component('my-component4', {
+     template: `<div>
+       <slot :text="hello" message="world"></slot>
+     </div>`,
+     data () {
+       return {
+         hello: [1,'2']
+       }
+     }
+});
+var component = {
+  template: '<h1>自定义组件!</h1>',
+  props['query','id'],
+  data(){
+     return {
+            title:"",
+            name:""
+        }
+  },
+  mounted(){
+              const {name,id} = this.$route.params;
+              this.name = name; 
+              this.$route.query.shopid;            
+              if(this.$route.params.id == 1){
+              }
+  
+  },
+  methods:{
+      handleClick(){
+      router = this.$router;
+      router.push('home');
+      router.push({ path: 'home' });
+      router.push({ name: 'user', params: { userId: 123 }});
+      router.push({ path: 'register', query: { plan: 'private' }});
+      router.push({
+          path: `/describe/${id}`,
+      });
+      router.replace(location);
+      router.go(1);
+      }
+  }
+}
+var routes = [
+    {
+        path:"/one",
+        name:"one",
+        meta:{tt:true},
+        component:a
+    },
+    {
+        path:'/list/:id',
+        name:'list',
+        component:List,
+        props:true
+    },
+    {
+        path:'/list/:id',
+        name:'list',
+        component:List,
+        props : (route)=>({
+            query:route.query.q
+            id:route.params.id
+        })
+    },
+    {
+        path:"/one",
+        name:"one",
+        component:a,
+        children:[
+          {
+              path:":id",
+              component:{
+                  template:"#c"
+              }
+          }
+      ]
+    },
+    {
+        path:"/one",
+        name:"one",
+        componens:{
+            defaults:Foo,
+            a:Bar,
+            b:Baz
+        }
+    },
+    { 
+      path: '/a', 
+      redirect: '/b' 
+  },
+  { 
+    path: '/a', 
+    component: A, 
+    alias: '/b' 
+  }
+];
+to: Route: 即将要进入的目标 路由对象
+
+from: Route: 当前导航正要离开的路由
+
+next: Function: 一定要调用该方法来 resolve 这个钩子。执行效果依赖 next 方法的调用参数。
+
+    next(): 进行管道中的下一个钩子。如果全部钩子执行完了，则导航的状态就是 confirmed (确认的)。
+
+    next(false): 中断当前的导航。如果浏览器的 URL 改变了 (可能是用户手动或者浏览器后退按钮)，那么 URL 地址会重置到 from 路由对应的地址。
+
+    next('/') 或者 next({ path: '/' }): 跳转到一个不同的地址。当前的导航被中断，然后进行一个新的导航。你可以向 next 传递任意位置对象，且允许设置诸如 replace: true、name: 'home' 之类的选项以及任何用在 router-link 的 to prop 或 router.push 中的选项。
+
+    next(error): (2.4.0+) 如果传入 next 的参数是一个 Error 实例，则导航会被终止且该错误会被传递给 router.onError() 注册过的回调。
+
+// 全局路由守卫
+router.beforeEach((to, from, next) => {
+  if(to.matched.some(record=>record.meta.tt))
+  {
+    next({path:'/dd'})
+  }
+  console.log('navigation-guards');
+  // to: Route: 即将要进入的目标 路由对象
+  // from: Route: 当前导航正要离开的路由
+  // next: Function: 一定要调用该方法来 resolve 这个钩子。执行效果依赖 next 方法的调用参数。
+  const route = ['home', 'list'];
+  let isLogin = isLogin;  // 是否登录
+  // 未登录状态；当路由到route指定页时，跳转至login
+  if (route.indexOf(to.name) >= 0) {  
+    if (!isLogin) {
+      this.$router.push({ path:'/login',});
+    }
+  }
+  // 已登录状态；当路由到login时，跳转至home 
+  if (to.name === 'login') {
+    if (isLogin) {
+      this.$router.push({ path:'/home',});;
+    }
+  }
+  next();
+});
+
+
+</script>
