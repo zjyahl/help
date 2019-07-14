@@ -1,0 +1,49 @@
+string number boolean null undefined object
+String Number Boolean Object Function Array Date RegExp Error
+
+在对象中， 属性名永远都是字符串。 如果你使用 string（字面量） 以外的其他值作为属性
+名， 那它首先会被转换为一个字符串。 即使是数字也不例外
+myObject[true] = "foo";
+myObject[3] = "bar";
+myObject["true"]; // "foo"
+myObject["3"]; // "bar"
+
+js 全局 函数
+eval()默认为执行时作用域
+with 为定义变量会提升为全局
+函数中未var 将被作为全局变量(window)
+变量声明 函数定义 函数后面覆盖前面提升 变量可多次声明：
+a = 12;
+var a;
+
+获取声明data触发异常
+undefined;
+obj中引用未定义data为undefined
+
+this 默认绑定全局
+如果你把 null 或者 undefined 作为 this 的绑定对象传入 call、 apply 或者 bind， 这些值在调用时会被忽略， 实际应用的是默认绑定规则
+var ø = Object.create( null );
+
+如果已经存在这个属性， [[Put]] 算法大致会检查下面这些内容。
+1. 属性是否是访问描述符？ 如果是并且存在 setter 就调用 setter。
+2. 属性的数据描述符中 writable 是否是 false ？ 如果是， 在非严格模式下静默失败， 在
+严格模式下抛出 TypeError 异常。
+3. 如果都不是， 将该值设置为属性的值。
+
+在于原型链上层时 myObject.foo = "bar" 会出现的三种情况。
+1. 如果在 [[Prototype]] 链上层存在名为 foo 的普通数据访问属性 并且没
+有被标记为只读（writable:false）， 那就会直接在 myObject 中添加一个名为 foo 的新
+属性， 它是屏蔽属性。
+2. 如果在 [[Prototype]] 链上层存在 foo， 但是它被标记为只读（writable:false）， 那么
+无法修改已有属性或者在 myObject 上创建屏蔽属性。 如果运行在严格模式下， 代码会
+抛出一个错误。 否则， 这条赋值语句会被忽略。 总之， 不会发生屏蔽。
+3. 如果在 [[Prototype]] 链上层存在 foo 并且它是一个 setter（参见第 3 章）， 那就一定会
+调用这个 setter。 foo 不会被添加到（或者说屏蔽于） myObject， 也不会重新定义 foo 这
+个 setter。
+如果你希望在第二种和第三种情况下也屏蔽 foo， 那就不能使用 = 操作符来赋值， 而是使
+用 Object.defineProperty(..) 来向 myObject 添加 foo。
+
+
+
+
+"use strict"; 必须var this 不能默认全局 eval自身作用域 
