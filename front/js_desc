@@ -1,5 +1,16 @@
-string number boolean null undefined object
+string number boolean null undefined object symbol
 String Number Boolean Object Function Array Date RegExp Error
+typeof null === "object";
+
+fun1.length;//parameter num
+sparse array
+true 转换为 1， false 转换为 0。 undefined 转换为 NaN， null 转换为 0。
+以下这些是假值：
+• undefined
+• null
+• false
+• +0、 -0 和 NaN
+• ""
 
 在对象中， 属性名永远都是字符串。 如果你使用 string（字面量） 以外的其他值作为属性
 名， 那它首先会被转换为一个字符串。 即使是数字也不例外

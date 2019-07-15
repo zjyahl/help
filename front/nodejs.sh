@@ -29,3 +29,9 @@ npm run-script build
 
 npm install --save-dev vue-cli
 vue init webpack Vue-Project
+
+npm install -save moduleName 
+//dependencies 运行npm install --production或者注明NODE_ENV变量值为production时，会自动下载模块到node_modules目录中。
+
+npm install -save-dev moduleName //devDependencies 
+//devDependencies  运行npm install --production或者注明NODE_ENV变量值为production时，不会自动下载模块到node_modules目录中。
