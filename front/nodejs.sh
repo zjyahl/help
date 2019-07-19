@@ -35,3 +35,5 @@ npm install -save moduleName
 
 npm install -save-dev moduleName //devDependencies 
 //devDependencies  运行npm install --production或者注明NODE_ENV变量值为production时，不会自动下载模块到node_modules目录中。
+
+cnpm outdated

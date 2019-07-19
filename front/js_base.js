@@ -421,6 +421,7 @@ for (var v of it) {
 
 [...arr1, ...arr2, ...arr3];
 [...'hello'];
+a = {...obj};
 
 
 
@@ -428,7 +429,44 @@ var name1 = "李四";
 var name2 = "张三";
 export { name1, name2 }
 import { name1 as a, name2 } from "/.a.js" 
+import * as filters from './filters' 
 
 var name="李四";
 export default name
 import name from "/.a.js"
+
+let [head,...tail]=[1, 2, 3, 4]; //head=1，tail=[2,3,4]。
+let [foo1,foo2]=new Set(['a', 'b', 'c'])
+var [x=1]=[undefined]; //x=1
+var [y=2]=[null];  //y=2
+let [x1=y1,y1=1]=[]; //error，因为此时y1还没有值，应该如此写： let[y=1,x=y]=[];
+let { fishInstance,dogInstance}={ //对象属性没有次序，变量名必须与属性相同。
+    dogInstance: {
+        name: 'dog',
+        moveType: 'run'
+    },
+    fishInstance:{
+        name:'fish'
+    }
+};
+let { oldName:newName}={oldName: '12222222', bar: 'barTest'}//真正被赋值的是后者，而不是前者
+
+let tree = {
+    root: {
+        leaf: {
+            left: 5,
+            right: 5
+        }
+    }
+}
+var { root:{leaf:{left}} }=tree; //此时， root 与 leaf 都是模式,不会被赋值，只有left是变量
+console.log(root);  /*root is not defined*/
+
+const [a,b,c,d,e]='hello world';
+let { length:strLen }='world';
+
+let { toString:s1 } =123; //s1===Number.prototype.toString
+let { toString: s2}=true; //s2===Boolean.prototype.toString
+
+let temp;
+( { temp }={x: 1} ); //使用圆括号，避免JS引擎将 "{ }" 解释为代码块 {temp}= {x: 1}; //error
