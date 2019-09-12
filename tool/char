@@ -5,6 +5,8 @@
 5字节 111110xx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 
 6字节 1111110x 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx
 
+\u0080-\uffff
+
 FFFD
 
 UTF8的BOM头为 0xEF 0xBB 0xBF
@@ -17,8 +19,12 @@ ISO-8859-1
 GB2312
 A1A1－FEFE(41377-65278)
 其中汉字编码范围：B0A1-F7FE(45217-63486)。
+“高位字节”使用了0xA1-0xF7(把01-87区的区号加上0xA0)，“低位字节”使用了0xA1-0xFE(把01-94加上 0xA0)。 由于一级汉字从16区起始，汉字区的“高位字节”的范围是0xB0-0xF7，“低位字节”的范围是0xA1-0xFE，占用的码位是 72*94=6768。其中有5个空位是D7FA-D7FE
+
+
 
 GBK
 8140－FEFE (33088-65278) 剔除xx7F码位
+编码范围是 8140~FEFE去掉 XX7F总共有 23940 个码位
 
 Unicode 0X4E00到0x9FA5
