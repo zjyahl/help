@@ -14,9 +14,24 @@ dist/
 
 git status
 
-git diff
-git diff –cached
-git diff HEAD -- file
+
+比较 工作区和暂存区
+ 	git diff filename 
+比较暂存区与最新本地版本库
+    git diff --cached  filename
+比较工作区和最新版本
+    git diff HEAD filename
+比较工作区与指定的 commit -id 的差异
+    git diff commit-id  filename
+比较暂存区与指定 commit-id 的差异
+    git diff --cached commit-id  filename
+比较两个 commit -id 的差异
+    git diff commit-id commit-idgit diff
+
+git ls-tree -l HEAD
+git ls-files --stage
+git hash-object readme.txt
+git show 215ded5
 
 git log
 git log --pretty=oneline
@@ -132,3 +147,13 @@ git merge origin/master //进行合并
 git fetch origin master:tmp //从远程仓库master分支获取最新，在本地建立tmp分支
 git diff tmp //將當前分支和tmp進行對比
 git merge tmp //合并tmp分支到当前分支
+
+
+git checkout B1
+git pull origin B1 --rebase
+git rebase master
+git push origin B1 --force
+git checkout master
+git merge B1
+
+git rebase -i [SHA] //merge before sha
