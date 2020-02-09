@@ -1,8 +1,10 @@
 npm config set prefix "C:\Users\zjy\nodejs\node_global"
 npm config set cache "C:\Users\zjy\nodejs\node_cache"
-NODE_PATH "C:\Users\zjy\nodejs\node_global"
-npm install -g cnpm --registry=https://registry.npm.taobao.org
 path "C:\Users\zjy\nodejs\node_global"
+npm install --registry=https://registry.npm.taobao.org
+
+npm install --global --production windows-build-tools --registry=https://registry.npm.taobao.org
+
 
 npm --registry https://registry.npm.taobao.org install express
 npm config set registry https://registry.npm.taobao.org

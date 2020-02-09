@@ -51,3 +51,14 @@ firewall-cmd --zone=public --add-port=80/tcp --permanent
 firewall-cmd --reload
 firewall-cmd --list-ports
 rm -rf dir
+
+sudo ./mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data
+sudo ./mysqld_safe --user=mysql
+./mysql --user=root -p
+alter user 'root'@'localhost' identified by '123456';
+CREATE USER 'root'@'%' IDENTIFIED BY 'Hadoop3!';
+grant all privileges on *.* to 'root'@'%';
+alter user 'root'@'%' identified with mysql_native_password by '123456';
+firewall-cmd --state 
+firewall-cmd --zone=public --add-port=3306/tcp --permanent
+firewall-cmd --reload
