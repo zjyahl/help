@@ -19,6 +19,8 @@ print("repr() shows quotes: {!r}; str() doesn't: {!s}".format('test1', 'test2'))
 print('{:+f}; {: f}'.format(3.14, -3.14))
 print("int: {0:d};  hex: {0:x};  oct: {0:o};  bin: {0:b}".format(42))
 print("int: {0:d};  hex: {0:#x};  oct: {0:#o};  bin: {0:#b}".format(42))
+print('%2d-%02d' % (3, 1))
+print('%.2f' % 3.1455926)
 print('{:,}'.format(1234567890))
 print('Correct answers: {:.2%}'.format(19/22))
 print('{:>30}'.format('left aligned'))
@@ -103,3 +105,43 @@ import copy
 from pathlib import Path
 data_folder = Path("source_data/text_files")
 file_to_open = data_folder / "raw_data.txt"
+
+
+
+with open('',"rb") as f1:
+    with open('',"wb") as f2:
+        while True:
+            strb = f1.read(1024)
+            if strb == b"":
+                break
+            f2.write(strb)
+f = open('workfile', 'rb+')
+f.write(b'111')
+f.seek(0)
+print(f.read(1))
+f.write(b'2')
+
+import re
+pattern = re.compile(r'\d+')
+m = pattern.match('one12twothree34four')
+m = pattern.match('one12twothree34four', 2, 10)
+matchObj = re.match( r'(?P<logTime>.+) VSP_CP_FTP$','', re.I)
+matchObj = re.search( r'(?P<logTime>.+) VSP_CP_FTP$','', re.I)
+if matchObj:
+    matchObj.group(1)
+    matchObj.group('logTime')
+    matchObj.start(1)
+    matchObj.end(1)
+    matchObj.span(1)
+dataList = re.findall(r'\bf[a-z]*', 'which foot or hand fell fastest')
+it = re.finditer(r"\d+","12a32bc43jf3") 
+for match in it: 
+    print (match.group() )
+re.split(r'\W+', ' runoob, runoob, runoob.')
+re.sub(r'(\b[a-z]+) \1', r'\1', 'cat in the the hat')
+
+import time
+time.strftime("%Y-%m-%d %H:%M:%S",time.localtime())
+
+
+

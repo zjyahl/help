@@ -51,6 +51,12 @@ class Class_Common(object):
     def __getattribute__(self,*args,**kwargs): 
         print(args,kwargs)
         return object.__getattribute__(self,*args,**kwargs)
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        pass
         
 class Class_list(object):
 
