@@ -141,7 +141,18 @@ re.split(r'\W+', ' runoob, runoob, runoob.')
 re.sub(r'(\b[a-z]+) \1', r'\1', 'cat in the the hat')
 
 import time
-time.strftime("%Y-%m-%d %H:%M:%S",time.localtime())
+import datetime
+time.strptime(time.strftime("%Y-%m-%d %H:%M:%S",time.localtime()), "%Y-%m-%d %H:%M:%S")
+datetime.datetime.strptime(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f'), '%Y-%m-%d %H:%M:%S.%f')
+now1 = datetime.datetime.now()+ datetime.timedelta(days=3)
+intervatime = datetime.datetime.now()-now1
+intervatime.seconds
+now1 > datetime.datetime.now()
+time.mktime(time.localtime())
+time.localtime(time.mktime(time.localtime()))
+datetime.datetime.fromtimestamp(time.mktime(time.localtime()))
+structTime = time.localtime()
+datetime.datetime(*structTime[:6])
 
 
 
